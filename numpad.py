@@ -1,4 +1,5 @@
 from tkinter import Button, Frame
+import app
 
 
 class NumButton(Button):
@@ -15,7 +16,7 @@ class NumButton(Button):
 
 class NumButtonFrame(Frame):
     frame_size = "500x200"
-    buttons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '-', '.']
+    buttons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '—', '.']
     x_grid_count = 3
     y_grid_count = 3
 
@@ -28,8 +29,8 @@ class NumButtonFrame(Frame):
             if x >= self.x_grid_count:
                 x = 0
                 y += 1
-            button = NumButton(self, text=str(button))
-            button.grid(row=y, column=x)
+            button_obj = NumButton(self, text=str(button), command=lambda: app.equation_display.append(button))
+            button_obj.grid(row=y, column=x)
             i += 1
             x += 1
 

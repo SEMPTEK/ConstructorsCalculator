@@ -30,5 +30,6 @@ class Calculator:
     def split_by_operation(self, equation: list):
         pass
 
-    def __init__(self):
+    def __init__(self, equation_text: str):
         self.precision = app.precision
+        print("test")

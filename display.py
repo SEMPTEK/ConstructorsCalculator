@@ -1,40 +1,33 @@
-from tkinter import Label, Frame
-import app
-
-
-class DisplayText(Label):
-    font = ("Helvetica", 20)
-    test_text = "1000123"
-
-    def __init__(self, parent, **kw):
-        super().__init__(parent, **kw)
-        label = Label(self, text=self.test_text)
-        app.display_label = label
+from tkinter import Label
 
 
 class EquationDisplay(Label):
-    def __init__(self, parent, **kw):
-        super().__init__(parent, **kw)
-
-
-class AnswerDisplay(Label):
-    def __init__(self, parent, **kw):
-        super().__init__(parent, **kw)
-
-
-class DisplayFrame(Frame):
+    equation_text = ""
     config_data = {
         'background': '#002d04',
-        'height': 75,
+        'height': 3,
+        'font': ('Arial', 18),
+        'fg': 'white',
     }
-    display_label = DisplayText
-    equation_display = EquationDisplay
 
-    def add_sub_frames(self):
-        self.display_label = self.display_label(self)
-        self.equation_display = self.equation_display(self)
+    def append(self, value):
+        value = str(value)
+        self.equation_text += value
+        self.update_text()
+
+    def update_text(self):
+        self.configure(text=str(self.equation_text))
+
+    def clear(self):
+        self.equation_text = ""
+        self.update_text()
+
+    def backspace(self):
+        if self.equation_text == "":
+            return
+        self.equation_text = self.equation_text[0:-1]
+        self.update_text()
 
     def __init__(self, parent, **kw):
         super().__init__(parent, **kw)
         self.configure(self.config_data)
-        self.add_sub_frames()
