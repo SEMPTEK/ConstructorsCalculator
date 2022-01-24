@@ -4,7 +4,7 @@ software.
 """
 
 # set name for application (shouldn't need to be changed)
-name = "Structural Calculator"
+name = "ARCH CALCULATOR"
 # set precision to 1/16 unless changed by user
 precision = ".0625"
 # save pointer to class EquationDisplay

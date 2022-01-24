@@ -8,6 +8,7 @@ class EquationDisplay(Label):
         'height': 3,
         'font': ('Arial', 18),
         'fg': 'white',
+        'width': 1,
     }
 
     def append(self, value):
